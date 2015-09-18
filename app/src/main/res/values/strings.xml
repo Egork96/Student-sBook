@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_main">Student\'s Book</string>
+    <string name="title_activity_first_start">FirstStartActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
 </resources>
