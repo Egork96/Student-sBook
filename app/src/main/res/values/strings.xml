@@ -7,4 +7,9 @@
     <string name="title_activity_first_start">FirstStartActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
+    <string name="drawer_main">Главная</string>
+    <string name="drawer_calendar">Календарь</string>
+    <string name="drawer_settings">Настройки</string>
+    <string name="drawer_schedule">Расписание</string>
+
 </resources>
