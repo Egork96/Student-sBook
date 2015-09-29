@@ -1,5 +1,6 @@
 package ru.nextgenstudio.studentsbook;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,12 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+import ru.nextgenstudio.studentsbook.fragments.CalendarFragment;
+import ru.nextgenstudio.studentsbook.fragments.MainFragment;
+import ru.nextgenstudio.studentsbook.fragments.ScheduleFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,10 +27,26 @@ public class MainActivity extends AppCompatActivity {
     private final static int DRAWER_ITEM_SCHEDULE = 3;
     private final static int DRAWER_ITEM_SETTINGS = 4;
 
+    FrameLayout cont;
+    FragmentManager fm;
+
+    MainFragment mFrag;
+    CalendarFragment cFrag;
+    ScheduleFragment sFrag;
+
+    Drawer drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        cont = (FrameLayout) findViewById(R.id.container);
+        fm = getFragmentManager();
+
+        mFrag = new MainFragment();
+        cFrag = new CalendarFragment();
+        sFrag = new ScheduleFragment();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null){
@@ -32,14 +54,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         initializeNavDrawer(toolbar);
+        fm.beginTransaction().add(R.id.container, mFrag).commit();
     }
 
     void initializeNavDrawer(Toolbar toolbar){
 
-        new DrawerBuilder()
+        drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withActionBarDrawerToggleAnimated(true)
+                .withDisplayBelowStatusBar(true)
 
                 .addDrawerItems(
                         new PrimaryDrawerItem()
@@ -67,10 +91,13 @@ public class MainActivity extends AppCompatActivity {
 
             switch (iDrawerItem.getIdentifier()){
                 case DRAWER_ITEM_MAIN:
+                    fm.beginTransaction().replace(R.id.container, mFrag).commit();
                     break;
                 case DRAWER_ITEM_CALENDAR:
+                    fm.beginTransaction().replace(R.id.container, cFrag).commit();
                     break;
                 case DRAWER_ITEM_SCHEDULE:
+                    fm.beginTransaction().replace(R.id.container, sFrag).commit();
                     break;
                 case DRAWER_ITEM_SETTINGS:
                     startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
@@ -80,6 +107,15 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen()){
+            drawer.closeDrawer();
+        }else{
+            return;
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
