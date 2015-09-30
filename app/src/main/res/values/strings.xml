@@ -11,5 +11,6 @@
     <string name="drawer_calendar">Календарь</string>
     <string name="drawer_settings">Настройки</string>
     <string name="drawer_schedule">Расписание</string>
+    <string name="drawer_about">О программе</string>
 
 </resources>

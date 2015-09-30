@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private final static int DRAWER_ITEM_CALENDAR = 2;
     private final static int DRAWER_ITEM_SCHEDULE = 3;
     private final static int DRAWER_ITEM_SETTINGS = 4;
+    private final static int DRAWER_ITEM_ABOUT = 5;
 
     FrameLayout cont;
     FragmentManager fm;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 .withToolbar(toolbar)
                 .withActionBarDrawerToggleAnimated(true)
                 .withDisplayBelowStatusBar(true)
+                .withHeader(R.layout.drawer_header)
 
                 .addDrawerItems(
                         new PrimaryDrawerItem()
@@ -78,7 +80,10 @@ public class MainActivity extends AppCompatActivity {
                         new DividerDrawerItem(),
                         new PrimaryDrawerItem()
                                 .withName(R.string.drawer_settings)
-                                .withIdentifier(DRAWER_ITEM_SETTINGS)
+                                .withIdentifier(DRAWER_ITEM_SETTINGS),
+                        new PrimaryDrawerItem()
+                                .withName(R.string.drawer_about)
+                                .withIdentifier(DRAWER_ITEM_ABOUT)
                 )
 
                 .withOnDrawerItemClickListener(drawerItemClickListener)
