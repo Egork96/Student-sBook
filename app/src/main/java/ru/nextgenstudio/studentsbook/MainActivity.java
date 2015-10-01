@@ -70,20 +70,25 @@ public class MainActivity extends AppCompatActivity {
                 .addDrawerItems(
                         new PrimaryDrawerItem()
                                 .withName(R.string.drawer_main)
-                                .withIdentifier(DRAWER_ITEM_MAIN),
+                                .withIdentifier(DRAWER_ITEM_MAIN)
+                                .withIcon(R.drawable.ic_event_available_black_36dp),
                         new PrimaryDrawerItem()
                                 .withName(R.string.drawer_calendar)
-                                .withIdentifier(DRAWER_ITEM_CALENDAR),
+                                .withIdentifier(DRAWER_ITEM_CALENDAR)
+                                .withIcon(R.drawable.ic_perm_contact_calendar_black_36dp),
                         new PrimaryDrawerItem()
                                 .withName(R.string.drawer_schedule)
-                                .withIdentifier(DRAWER_ITEM_SCHEDULE),
+                                .withIdentifier(DRAWER_ITEM_SCHEDULE)
+                                .withIcon(R.drawable.ic_schedule_black_36dp),
                         new DividerDrawerItem(),
                         new PrimaryDrawerItem()
                                 .withName(R.string.drawer_settings)
-                                .withIdentifier(DRAWER_ITEM_SETTINGS),
+                                .withIdentifier(DRAWER_ITEM_SETTINGS)
+                                .withIcon(R.drawable.ic_settings_black_36dp),
                         new PrimaryDrawerItem()
                                 .withName(R.string.drawer_about)
                                 .withIdentifier(DRAWER_ITEM_ABOUT)
+                                .withIcon(R.drawable.ic_info_black_36dp)
                 )
 
                 .withOnDrawerItemClickListener(drawerItemClickListener)
