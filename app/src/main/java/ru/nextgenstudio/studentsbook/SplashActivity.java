@@ -2,6 +2,7 @@ package ru.nextgenstudio.studentsbook;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -9,16 +10,30 @@ import android.view.MenuItem;
 
 public class SplashActivity extends Activity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
-        }, 1500);
+
+        SharedPreferences sp = getPreferences(MODE_PRIVATE);
+
+        if (sp.getBoolean("firstStart", true)){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(getApplicationContext(), FirstStartActivity.class));
+                }
+            }, 1500);
+        }else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                }
+            }, 1500);
+        }
     }
 
     @Override

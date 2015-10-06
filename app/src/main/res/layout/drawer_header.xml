@@ -2,31 +2,35 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="@dimen/material_drawer_account_header_height"
+              android:layout_height="160dp"
     >
 
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/material_drawer_account_header_height"
+        android:layout_height="160dp"
         android:background="@color/primary">
 
         <ImageView
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:id="@+id/imageView"
-            android:layout_margin="16dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/avatar"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:adjustViewBounds="true"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Мачнев Егор"
-            android:id="@+id/textView"
-            android:layout_below="@+id/imageView"
+            android:id="@+id/name"
+            android:layout_below="@+id/avatar"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="false"
             android:layout_marginLeft="16dp"
@@ -36,14 +40,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="НИ-201"
-            android:id="@+id/textView2"
+            android:id="@+id/group"
             android:textColor="@color/icons"
-            android:layout_below="@+id/imageView"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="16dp"/>
+            android:layout_below="@+id/name"
+            android:layout_alignLeft="@+id/name"
+            android:layout_alignStart="@+id/name"/>
 
     </RelativeLayout>
 

@@ -13,4 +13,10 @@
     <string name="drawer_schedule">Расписание</string>
     <string name="drawer_about">О программе</string>
 
+    <string name="welcome">Добро пожаловать в Studapp</string>
+    <string name="welcome2">Это ваш личный ассистент</string>
+    <string name="choose_theme">Выберите тему</string>
+    <string name="input_vuz">В каком учебном заведении вы учитесь?</string>
+    <string name="next_button">Далее</string>
+
 </resources>

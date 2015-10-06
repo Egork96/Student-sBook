@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withActionBarDrawerToggleAnimated(true)
-                .withDisplayBelowStatusBar(true)
+                .withDisplayBelowStatusBar(false)
                 .withHeader(R.layout.drawer_header)
 
                 .addDrawerItems(

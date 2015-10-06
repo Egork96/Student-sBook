@@ -1,9 +1,9 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="AppTheme.Base"/>
+    <style name="AppTheme" parent="AppTheme.Indigo"/>
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
+    <style name="AppTheme.Indigo" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="android:textColorPrimary">@color/icons</item>
