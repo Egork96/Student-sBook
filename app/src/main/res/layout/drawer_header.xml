@@ -2,47 +2,47 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="160dp"
+              android:layout_height="172dp"
     >
 
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="@color/primary">
+        android:layout_height="172dp"
+        android:background="?attr/colorPrimary">
 
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:id="@+id/avatar"
+        <com.mikepenz.materialdrawer.view.BezelImageView
+            android:id="@+id/material_drawer_account_header_current"
+            android:layout_width="@dimen/material_drawer_account_header_selected"
+            android:layout_height="@dimen/material_drawer_account_header_selected"
+            android:clickable="true"
+            android:elevation="2dp"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:src="@mipmap/ic_launcher"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/ic_launcher"/>
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Мачнев Егор"
+            android:text="Name Name"
             android:id="@+id/name"
-            android:layout_below="@+id/avatar"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="false"
-            android:layout_marginLeft="16dp"
-            android:textColor="@color/icons"
-            />
+            android:textColor="@color/indigo_icons"
+            android:layout_below="@+id/material_drawer_account_header_current"
+            android:layout_alignLeft="@+id/material_drawer_account_header_current"
+            android:layout_alignStart="@+id/material_drawer_account_header_current"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="НИ-201"
+            android:text="Group"
             android:id="@+id/group"
-            android:textColor="@color/icons"
+            android:textColor="@color/indigo_icons"
             android:layout_below="@+id/name"
             android:layout_alignLeft="@+id/name"
             android:layout_alignStart="@+id/name"/>

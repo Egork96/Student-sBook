@@ -3,7 +3,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/primary"
+              android:background="?attr/colorPrimary"
                 android:id="@+id/welcome_layout">
 
     <TextView
@@ -12,10 +12,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/welcome"
         android:id="@+id/textView2"
-        android:textColor="@color/icons"
+        android:textColor="@color/indigo_icons"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"/>
+        android:layout_marginTop="63dp"
+        android:textSize="24sp"/>
 
     <ImageView
         android:layout_width="128dp"
@@ -35,6 +36,6 @@
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
-        android:textColor="@color/icons"/>
+        android:textColor="@color/indigo_icons"/>
 
 </RelativeLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="lime_primary">#CDDC39</color>
+  <color name="lime_primary_dark">#AFB42B</color>
+  <color name="lime_primary_light">#F0F4C3</color>
+  <color name="lime_accent">#FF5722</color>
+  <color name="lime_primary_text">#212121</color>
+  <color name="lime_secondary_text">#727272</color>
+  <color name="lime_icons">#212121</color>
+  <color name="lime_divider">#B6B6B6</color>
+</resources>

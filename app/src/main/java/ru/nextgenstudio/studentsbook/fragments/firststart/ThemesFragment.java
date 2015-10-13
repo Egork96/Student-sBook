@@ -5,32 +5,35 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.FrameLayout;
 
 import ru.nextgenstudio.studentsbook.R;
 import ru.nextgenstudio.studentsbook.interfaces.FragmentCallback;
+import ru.nextgenstudio.studentsbook.interfaces.SupportThemes;
 
 /**
  * Created by egor on 05.10.15.
  */
-public class ThemesFragment extends Fragment implements View.OnClickListener{
+public class ThemesFragment extends Fragment implements View.OnClickListener, SupportThemes{
 
     FragmentCallback callback;
     SharedPreferences sp;
     Bundle args;
     View v;
 
-    Animation appearance1, appearance2, appearance3, appearance4, appearance5, appearance6;
+    FrameLayout preFab, preBar;
 
-    Button theme1, theme2, theme3, theme4, theme5, theme6;
-    TextView btnNext;
+    Animation preFabAnim, preBarAnim;
+    Animation[] appearance = new Animation[THEMES_COUNT];
+
+    Button[] theme = new Button[THEMES_COUNT];
+    Button btnNext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,49 +42,42 @@ public class ThemesFragment extends Fragment implements View.OnClickListener{
         callback = (FragmentCallback) getActivity();
         sp = getActivity().getSharedPreferences("user_settings", Context.MODE_PRIVATE);
 
-        appearance1 = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.appearance);
-        appearance2 = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.appearance);
-        appearance3 = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.appearance);
-        appearance4 = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.appearance);
-        appearance5 = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.appearance);
-        appearance6 = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.appearance);
-        appearance1.setStartOffset(0);
-        appearance2.setStartOffset(100);
-        appearance3.setStartOffset(400);
-        appearance4.setStartOffset(200);
-        appearance5.setStartOffset(300);
-        appearance6.setStartOffset(500);
+        preFabAnim = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.preview_anim_fab);
+        preBarAnim = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.preview_anim_toolbar);
 
+        for (int i = 0; i < THEMES_COUNT; i++){
+            appearance[i] = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.appearance);
+            appearance[i].setStartOffset(100*i);
+        }
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_themes, null, false);
+        preFab = (FrameLayout) v.findViewById(R.id.pre_fab);
+        preBar = (FrameLayout) v.findViewById(R.id.pre_toolbar);
 
-        btnNext = (TextView) v.findViewById(R.id.btn_next);
+        btnNext = (Button) v.findViewById(R.id.btn_ready);
         btnNext.setOnClickListener(this);
 
-        theme1 = (Button) v.findViewById(R.id.theme1);
-        theme2 = (Button) v.findViewById(R.id.theme2);
-        theme3 = (Button) v.findViewById(R.id.theme3);
-        theme4 = (Button) v.findViewById(R.id.theme4);
-        theme5 = (Button) v.findViewById(R.id.theme5);
-        theme6 = (Button) v.findViewById(R.id.theme6);
+        theme[0] = (Button) v.findViewById(R.id.theme_red);
+        theme[1] = (Button) v.findViewById(R.id.theme_orange);
+        theme[2] = (Button) v.findViewById(R.id.theme_amber);
+        theme[3] = (Button) v.findViewById(R.id.theme_purple);
+        theme[4] = (Button) v.findViewById(R.id.theme_indigo);
+        theme[5] = (Button) v.findViewById(R.id.theme_blue);
+        theme[6] = (Button) v.findViewById(R.id.theme_pink);
+        theme[7] = (Button) v.findViewById(R.id.theme_green);
+        theme[8] = (Button) v.findViewById(R.id.theme_lime);
+        theme[9] = (Button) v.findViewById(R.id.theme_grey);
+        theme[10] = (Button) v.findViewById(R.id.theme_blue_grey);
+        theme[11] = (Button) v.findViewById(R.id.theme_cyan);
 
-        theme1.setOnClickListener(this);
-        theme2.setOnClickListener(this);
-        theme3.setOnClickListener(this);
-        theme4.setOnClickListener(this);
-        theme5.setOnClickListener(this);
-        theme6.setOnClickListener(this);
-
-        theme1.setAnimation(appearance1);
-        theme2.setAnimation(appearance2);
-        theme3.setAnimation(appearance3);
-        theme4.setAnimation(appearance4);
-        theme5.setAnimation(appearance5);
-        theme6.setAnimation(appearance6);
+        for (int i = 0; i < THEMES_COUNT; i++){
+            theme[i].setOnClickListener(this);
+            theme[i].setAnimation(appearance[i]);
+        }
 
         return v;
     }
@@ -89,31 +85,67 @@ public class ThemesFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.theme1:
-                sp.edit().putInt("current_theme", 1).apply();
-                Snackbar.make(v, "Выбрана тема 1", Snackbar.LENGTH_SHORT).setAction("Действие", null).show();
+            case R.id.theme_red:
+                sp.edit().putInt("current_theme", THEME_RED).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
                 break;
-            case R.id.theme2:
-                sp.edit().putInt("current_theme", 2).apply();
-                Snackbar.make(v, "Выбрана тема 1", Snackbar.LENGTH_SHORT).setAction("Действие", null).show();
+            case R.id.theme_orange:
+                sp.edit().putInt("current_theme", THEME_ORANGE).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
                 break;
-            case R.id.theme3:
-                sp.edit().putInt("current_theme", 3).apply();
-                Snackbar.make(v, "Выбрана тема 1", Snackbar.LENGTH_SHORT).setAction("Действие", null).show();
+            case R.id.theme_amber:
+                sp.edit().putInt("current_theme", THEME_AMBER).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
                 break;
-            case R.id.theme4:
-                sp.edit().putInt("current_theme", 4).apply();
-                Snackbar.make(v, "Выбрана тема 1", Snackbar.LENGTH_SHORT).setAction("Действие", null).show();
+            case R.id.theme_purple:
+                sp.edit().putInt("current_theme", THEME_PURPLE).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
                 break;
-            case R.id.theme5:
-                sp.edit().putInt("current_theme", 5).apply();
-                Snackbar.make(v, "Выбрана тема 1", Snackbar.LENGTH_SHORT).setAction("Действие", null).show();
+            case R.id.theme_indigo:
+                sp.edit().putInt("current_theme", THEME_INDIGO).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
                 break;
-            case R.id.theme6:
-                sp.edit().putInt("current_theme", 6).apply();
-                Snackbar.make(v, "Выбрана тема 1", Snackbar.LENGTH_SHORT).setAction("Действие", null).show();
+            case R.id.theme_blue:
+                sp.edit().putInt("current_theme", THEME_BLUE).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
                 break;
-            case R.id.btn_next:
+            case R.id.theme_pink:
+                sp.edit().putInt("current_theme", THEME_PINK).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
+                break;
+            case R.id.theme_green:
+                sp.edit().putInt("current_theme", THEME_GREEN).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
+                break;
+            case R.id.theme_lime:
+                sp.edit().putInt("current_theme", THEME_LIME).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
+                break;
+            case R.id.theme_grey:
+                sp.edit().putInt("current_theme", THEME_GREY).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
+                break;
+            case R.id.theme_blue_grey:
+                sp.edit().putInt("current_theme", THEME_BLUE_GREY).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
+                break;
+            case R.id.theme_cyan:
+                sp.edit().putInt("current_theme", THEME_CYAN).apply();
+                preFab.startAnimation(preFabAnim);
+                preBar.startAnimation(preBarAnim);
+                break;
+            case R.id.btn_ready:
                 callback.ended(args.getInt("which"));
                 break;
         }

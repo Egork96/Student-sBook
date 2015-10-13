@@ -2,6 +2,7 @@ package ru.nextgenstudio.studentsbook;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,8 +20,9 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import ru.nextgenstudio.studentsbook.fragments.CalendarFragment;
 import ru.nextgenstudio.studentsbook.fragments.MainFragment;
 import ru.nextgenstudio.studentsbook.fragments.ScheduleFragment;
+import ru.nextgenstudio.studentsbook.interfaces.SupportThemes;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SupportThemes{
 
     private final static int DRAWER_ITEM_MAIN = 1;
     private final static int DRAWER_ITEM_CALENDAR = 2;
@@ -37,9 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
     Drawer drawer;
 
+    SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sp = getSharedPreferences("user_settings", MODE_PRIVATE);
+        initTheme(sp);
         setContentView(R.layout.activity_main);
 
         cont = (FrameLayout) findViewById(R.id.container);
@@ -57,6 +63,35 @@ public class MainActivity extends AppCompatActivity {
         initializeNavDrawer(toolbar);
         fm.beginTransaction().add(R.id.container, mFrag).commit();
     }
+
+    void initTheme(SharedPreferences sp){
+        if (sp.getInt("current_theme", 1) == THEME_RED){
+            setTheme(R.style.AppTheme_Red);
+        }else if (sp.getInt("current_theme", 1) == THEME_ORANGE){
+            setTheme(R.style.AppTheme_Orange);
+        }else if (sp.getInt("current_theme", 1) == THEME_AMBER){
+            setTheme(R.style.AppTheme_Amber);
+        }else if (sp.getInt("current_theme", 1) == THEME_PURPLE){
+            setTheme(R.style.AppTheme_Purple);
+        }else if (sp.getInt("current_theme", 1) == THEME_INDIGO){
+            setTheme(R.style.AppTheme_Indigo);
+        }else if (sp.getInt("current_theme", 1) == THEME_BLUE){
+            setTheme(R.style.AppTheme_Blue);
+        }else if (sp.getInt("current_theme", 1) == THEME_PINK){
+            setTheme(R.style.AppTheme_Pink);
+        }else if (sp.getInt("current_theme", 1) == THEME_GREEN){
+            setTheme(R.style.AppTheme_Green);
+        }else if (sp.getInt("current_theme", 1) == THEME_LIME){
+            setTheme(R.style.AppTheme_Lime);
+        }else if (sp.getInt("current_theme", 1) == THEME_GREY){
+            setTheme(R.style.AppTheme_Grey);
+        }else if (sp.getInt("current_theme", 1) == THEME_BLUE_GREY){
+            setTheme(R.style.AppTheme_BlueGrey);
+        }else if (sp.getInt("current_theme", 1) == THEME_CYAN){
+            setTheme(R.style.AppTheme_Cyan);
+        }
+    }
+
 
     void initializeNavDrawer(Toolbar toolbar){
 

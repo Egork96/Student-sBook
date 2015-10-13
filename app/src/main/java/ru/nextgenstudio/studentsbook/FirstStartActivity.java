@@ -1,6 +1,7 @@
 package ru.nextgenstudio.studentsbook;
 
 import android.app.FragmentManager;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -10,8 +11,9 @@ import ru.nextgenstudio.studentsbook.fragments.firststart.InfoFragment;
 import ru.nextgenstudio.studentsbook.fragments.firststart.ThemesFragment;
 import ru.nextgenstudio.studentsbook.fragments.firststart.WelcomeFragment;
 import ru.nextgenstudio.studentsbook.interfaces.FragmentCallback;
+import ru.nextgenstudio.studentsbook.interfaces.SupportThemes;
 
-public class FirstStartActivity extends AppCompatActivity implements FragmentCallback{
+public class FirstStartActivity extends AppCompatActivity implements FragmentCallback, SupportThemes{
 
     private static final int WELCOME_FRAGMENT = 0;
     private static final int THEMES_FRAGMENT = 1;
@@ -25,9 +27,13 @@ public class FirstStartActivity extends AppCompatActivity implements FragmentCal
 
     Bundle welcomeArgs, themesArgs, infoArgs;
 
+    SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sp = getSharedPreferences("user_settings", MODE_PRIVATE);
+        initTheme(sp);
         setContentView(R.layout.activity_first_start);
 
         welcomeArgs = new Bundle();
@@ -48,6 +54,34 @@ public class FirstStartActivity extends AppCompatActivity implements FragmentCal
         fm = getFragmentManager();
         fm.beginTransaction().add(R.id.container, welcomeFragment).commit();
 
+    }
+
+    void initTheme(SharedPreferences sp){
+        if (sp.getInt("current_theme", 1) == THEME_RED){
+            setTheme(R.style.AppTheme_Red);
+        }else if (sp.getInt("current_theme", 1) == THEME_ORANGE){
+            setTheme(R.style.AppTheme_Orange);
+        }else if (sp.getInt("current_theme", 1) == THEME_AMBER){
+            setTheme(R.style.AppTheme_Amber);
+        }else if (sp.getInt("current_theme", 1) == THEME_PURPLE){
+            setTheme(R.style.AppTheme_Purple);
+        }else if (sp.getInt("current_theme", 1) == THEME_INDIGO){
+            setTheme(R.style.AppTheme_Indigo);
+        }else if (sp.getInt("current_theme", 1) == THEME_BLUE){
+            setTheme(R.style.AppTheme_Blue);
+        }else if (sp.getInt("current_theme", 1) == THEME_PINK){
+            setTheme(R.style.AppTheme_Pink);
+        }else if (sp.getInt("current_theme", 1) == THEME_GREEN){
+            setTheme(R.style.AppTheme_Green);
+        }else if (sp.getInt("current_theme", 1) == THEME_LIME){
+            setTheme(R.style.AppTheme_Lime);
+        }else if (sp.getInt("current_theme", 1) == THEME_GREY){
+            setTheme(R.style.AppTheme_Grey);
+        }else if (sp.getInt("current_theme", 1) == THEME_BLUE_GREY){
+            setTheme(R.style.AppTheme_BlueGrey);
+        }else if (sp.getInt("current_theme", 1) == THEME_CYAN){
+            setTheme(R.style.AppTheme_Cyan);
+        }
     }
 
     @Override

@@ -18,5 +18,7 @@
     <string name="choose_theme">Выберите тему</string>
     <string name="input_vuz">В каком учебном заведении вы учитесь?</string>
     <string name="next_button">Далее</string>
+    <string name="ready_button">Готово</string>
+    <string name="input_schedule">Заполните расписание</string>
 
 </resources>

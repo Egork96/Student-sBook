@@ -4,12 +4,167 @@
     <style name="AppTheme" parent="AppTheme.Indigo"/>
 
     <style name="AppTheme.Indigo" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="android:textColorPrimary">@color/icons</item>
-        <item name="android:textColorSecondary">@color/secondary_text</item>
-        <item name="android:textColor">@color/primary_text</item>
-        <item name="colorAccent">@color/accent</item>
+        <item name="colorPrimary">@color/indigo_primary</item>
+        <item name="colorPrimaryDark">@color/indigo_primary_dark</item>
+        <item name="android:textColorPrimary">@color/indigo_icons</item>
+        <item name="android:textColorSecondary">@color/indigo_secondary_text</item>
+        <item name="android:textColor">@color/indigo_primary_text</item>
+        <item name="colorAccent">@color/indigo_accent</item>
+        <item name="android:divider">@color/indigo_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.Blue" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/blue_primary</item>
+        <item name="colorPrimaryDark">@color/blue_primary_dark</item>
+        <item name="android:textColorPrimary">@color/blue_icons</item>
+        <item name="android:textColorSecondary">@color/blue_secondary_text</item>
+        <item name="android:textColor">@color/blue_primary_text</item>
+        <item name="colorAccent">@color/blue_accent</item>
+        <item name="android:divider">@color/blue_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.Purple" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/purple_primary</item>
+        <item name="colorPrimaryDark">@color/purple_primary_dark</item>
+        <item name="android:textColorPrimary">@color/purple_icons</item>
+        <item name="android:textColorSecondary">@color/purple_secondary_text</item>
+        <item name="android:textColor">@color/purple_primary_text</item>
+        <item name="colorAccent">@color/purple_accent</item>
+        <item name="android:divider">@color/purple_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.Green" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/green_primary</item>
+        <item name="colorPrimaryDark">@color/green_primary_dark</item>
+        <item name="android:textColorPrimary">@color/green_icons</item>
+        <item name="android:textColorSecondary">@color/green_secondary_text</item>
+        <item name="android:textColor">@color/green_primary_text</item>
+        <item name="colorAccent">@color/green_accent</item>
+        <item name="android:divider">@color/green_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.Pink" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/pink_primary</item>
+        <item name="colorPrimaryDark">@color/pink_primary_dark</item>
+        <item name="android:textColorPrimary">@color/pink_icons</item>
+        <item name="android:textColorSecondary">@color/pink_secondary_text</item>
+        <item name="android:textColor">@color/pink_primary_text</item>
+        <item name="colorAccent">@color/pink_accent</item>
+        <item name="android:divider">@color/pink_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.Red" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/red_primary</item>
+        <item name="colorPrimaryDark">@color/red_primary_dark</item>
+        <item name="android:textColorPrimary">@color/red_icons</item>
+        <item name="android:textColorSecondary">@color/red_secondary_text</item>
+        <item name="android:textColor">@color/red_primary_text</item>
+        <item name="colorAccent">@color/red_accent</item>
+        <item name="android:divider">@color/red_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.Amber" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/amber_primary</item>
+        <item name="colorPrimaryDark">@color/amber_primary_dark</item>
+        <item name="android:textColorPrimary">@color/amber_icons</item>
+        <item name="android:textColorSecondary">@color/amber_secondary_text</item>
+        <item name="android:textColor">@color/amber_primary_text</item>
+        <item name="colorAccent">@color/amber_accent</item>
+        <item name="android:divider">@color/amber_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.BlueGrey" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/blue_grey_primary</item>
+        <item name="colorPrimaryDark">@color/blue_grey_primary_dark</item>
+        <item name="android:textColorPrimary">@color/blue_grey_icons</item>
+        <item name="android:textColorSecondary">@color/blue_grey_secondary_text</item>
+        <item name="android:textColor">@color/blue_grey_primary_text</item>
+        <item name="colorAccent">@color/blue_grey_accent</item>
+        <item name="android:divider">@color/blue_grey_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.Cyan" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/cyan_primary</item>
+        <item name="colorPrimaryDark">@color/cyan_primary_dark</item>
+        <item name="android:textColorPrimary">@color/cyan_icons</item>
+        <item name="android:textColorSecondary">@color/cyan_secondary_text</item>
+        <item name="android:textColor">@color/cyan_primary_text</item>
+        <item name="colorAccent">@color/cyan_accent</item>
+        <item name="android:divider">@color/cyan_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.Orange" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/orange_primary</item>
+        <item name="colorPrimaryDark">@color/orange_primary_dark</item>
+        <item name="android:textColorPrimary">@color/orange_icons</item>
+        <item name="android:textColorSecondary">@color/orange_secondary_text</item>
+        <item name="android:textColor">@color/orange_primary_text</item>
+        <item name="colorAccent">@color/orange_accent</item>
+        <item name="android:divider">@color/orange_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.Grey" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/grey_primary</item>
+        <item name="colorPrimaryDark">@color/grey_primary_dark</item>
+        <item name="android:textColorPrimary">@color/grey_icons</item>
+        <item name="android:textColorSecondary">@color/grey_secondary_text</item>
+        <item name="android:textColor">@color/grey_primary_text</item>
+        <item name="colorAccent">@color/grey_accent</item>
+        <item name="android:divider">@color/grey_divider</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+
+    <style name="AppTheme.Lime" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/lime_primary</item>
+        <item name="colorPrimaryDark">@color/lime_primary_dark</item>
+        <item name="android:textColorPrimary">@color/lime_icons</item>
+        <item name="android:textColorSecondary">@color/lime_secondary_text</item>
+        <item name="android:textColor">@color/lime_primary_text</item>
+        <item name="colorAccent">@color/lime_accent</item>
+        <item name="android:divider">@color/lime_divider</item>
 
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>

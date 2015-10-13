@@ -8,16 +8,18 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class SplashActivity extends Activity {
+import ru.nextgenstudio.studentsbook.interfaces.SupportThemes;
+
+public class SplashActivity extends Activity implements SupportThemes{
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences sp = getSharedPreferences("user_settings", MODE_PRIVATE);
+        initTheme(sp);
         setContentView(R.layout.activity_splash);
-
-        SharedPreferences sp = getPreferences(MODE_PRIVATE);
 
         if (sp.getBoolean("firstStart", true)){
             new Handler().postDelayed(new Runnable() {
@@ -35,6 +37,35 @@ public class SplashActivity extends Activity {
             }, 1500);
         }
     }
+
+    void initTheme(SharedPreferences sp){
+        if (sp.getInt("current_theme", 1) == THEME_RED){
+            setTheme(R.style.AppTheme_Red);
+        }else if (sp.getInt("current_theme", 1) == THEME_ORANGE){
+            setTheme(R.style.AppTheme_Orange);
+        }else if (sp.getInt("current_theme", 1) == THEME_AMBER){
+            setTheme(R.style.AppTheme_Amber);
+        }else if (sp.getInt("current_theme", 1) == THEME_PURPLE){
+            setTheme(R.style.AppTheme_Purple);
+        }else if (sp.getInt("current_theme", 1) == THEME_INDIGO){
+            setTheme(R.style.AppTheme_Indigo);
+        }else if (sp.getInt("current_theme", 1) == THEME_BLUE){
+            setTheme(R.style.AppTheme_Blue);
+        }else if (sp.getInt("current_theme", 1) == THEME_PINK){
+            setTheme(R.style.AppTheme_Pink);
+        }else if (sp.getInt("current_theme", 1) == THEME_GREEN){
+            setTheme(R.style.AppTheme_Green);
+        }else if (sp.getInt("current_theme", 1) == THEME_LIME){
+            setTheme(R.style.AppTheme_Lime);
+        }else if (sp.getInt("current_theme", 1) == THEME_GREY){
+            setTheme(R.style.AppTheme_Grey);
+        }else if (sp.getInt("current_theme", 1) == THEME_BLUE_GREY){
+            setTheme(R.style.AppTheme_BlueGrey);
+        }else if (sp.getInt("current_theme", 1) == THEME_CYAN){
+            setTheme(R.style.AppTheme_Cyan);
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="?attr/colorPrimary"
+                android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/input_schedule"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textColor="@color/indigo_icons"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ready_button"
+        android:id="@+id/btn_ready"
+        android:textColor="@color/accent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+</RelativeLayout>

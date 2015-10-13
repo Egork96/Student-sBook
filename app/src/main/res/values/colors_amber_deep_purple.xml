@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="amber_primary">#FFC107</color>
+  <color name="amber_primary_dark">#FFA000</color>
+  <color name="amber_primary_light">#FFECB3</color>
+  <color name="amber_accent">#7C4DFF</color>
+  <color name="amber_primary_text">#212121</color>
+  <color name="amber_secondary_text">#727272</color>
+  <color name="amber_icons">#212121</color>
+  <color name="amber_divider">#B6B6B6</color>
+</resources>

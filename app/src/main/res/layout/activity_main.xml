@@ -6,7 +6,6 @@
                 tools:context="ru.nextgenstudio.studentsbook.MainActivity">
 
     <include
-        android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
 
     <FrameLayout
